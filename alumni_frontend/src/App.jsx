@@ -8,9 +8,18 @@ import News from "./pages/NewPage/NewPage";
 import Job from "./pages/Job/Job";
 import { Toaster } from "react-hot-toast";
 import { useAuthContext } from "./context/authContext";
+import RootLayout from "./pages/RootLayout";
+import Dashboard from "./pages/AdminPage/Dashboard/Dashboard";
 
 function App() {
   const {authUser} = useAuthContext();
+
+  useEffect(() => {
+    document.querySelector('html').style.scrollBehavior = 'auto'
+    window.scroll({ top: 0 })
+    document.querySelector('html').style.scrollBehavior = ''
+  }, [location.pathname]); // triggered on route change
+
   return (
     <div className="w-auto">
       <Routes>
@@ -34,8 +43,12 @@ function App() {
 
         {/* Auth Alumni*/}
         <Route
+          path="/social"
+          element={<RootLayout/>}
+        />
+        <Route
           path="/login"
-          element={authUser ? <Navigate to='/' />: <Login/>}
+          element={authUser ? <Navigate to='/social' />: <Login/>}
         />
         <Route
           path="/signup"
@@ -43,6 +56,10 @@ function App() {
         />
 
         {/* Auth Manager */}
+        <Route
+          path="/admin"
+          element={<Dashboard/>}
+        />
 
       </Routes>
       <Toaster/>
