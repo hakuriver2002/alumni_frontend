@@ -13,36 +13,60 @@ import {ThemeProvider, createStyles, createTheme} from "@mui/material/styles"
 const Event = () => {
   const { activeMenu, setActiveMenu, screenSize } = useAuthContext();
 
-  const [users, setUsers] = useState([]);
+  const [events, setEvents] = useState([]);
   
   const columns = [
+    // {
+    //   name: "image",
+    //   label: "Profile",
+    //   options: {
+    //     customBodyRender: (value) => <img src={value} alt="pic" className="w-12 h-12 rounded-full"/>
+    //   }
+    // },
     {
-      name: "image",
-      label: "Profile",
-      options: {
-        customBodyRender: (value) => <img src={value} alt="pic" className="w-12 h-12 rounded-full"/>
-      }
+      name: "title",
+      label: "Title",
+    },
+    // {
+    //   name: "gender",
+    //   label: "Gender",
+    //   options: {
+    //     customBodyRender: (value) => <p className={`capitalize px-3 py-1 inline-block rounded-full ${
+    //       value == "male" ? "bg-blue-500" : "bg-pink-500"
+    //     }`}>{value}</p>
+    //   }
+    // },
+    {
+        name: "tags",
+        label: "Tags",
+        options: {
+            customBodyRender: (value) => (
+                <div>
+                    {value.map((tag, index) => (
+                        <span key={index} className="tag inline-block bg-slate-300 px-1 m-2 rounded-full">
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+            )
+        }
+        
     },
     {
-      name: "name",
-      label: "Full name",
+        name: "reactions",
+        label: "Reactions",
+        options: {
+          customBodyRender: (value) => (
+            <div className="flex ">
+              <span className="reaction bg-green-400">👍 {value.likes}</span> &nbsp;
+              <span className="reaction bg-red-400">👎 {value.dislikes}</span>
+            </div>
+          ),
+        },
     },
     {
-      name: "gender",
-      label: "Gender",
-      options: {
-        customBodyRender: (value) => <p className={`capitalize px-3 py-1 inline-block rounded-full ${
-          value == "male" ? "bg-blue-500" : "bg-pink-500"
-        }`}>{value}</p>
-      }
-    },
-    {
-      name: "work",
-      label: "Working",
-    },
-    {
-      name: "gaduated",
-      label: "Gaduated"
+        name: "views",
+        label: "Views"
     },
     {
       name: "Edit",
@@ -67,20 +91,17 @@ const Event = () => {
   ]
 
   useEffect(() => {
-    fetch("https://dummyjson.com/users")
+    fetch("https://dummyjson.com/posts")
     .then((res) => res.json())
     .then((data) => {
-      let local = data?.users?.map((user) => ({
-        ...user,
-        name: user?.firstName + ' ' + user?.lastName,
-        work: user?.company.title,
-        gaduated: parseInt(user?.birthDate) + 20
+      let local = data?.posts?.map((event) => ({
+        ...event,
       }))
 
 
       console.log(local);
 
-      setUsers(local)
+      setEvents(local)
     })
   }, [])
 
@@ -108,11 +129,13 @@ const Event = () => {
       MuiTableCell: {
         styleOverrides: {
           head:{
-            padding: "10px 4px"
+            padding: "10px 8px"
           },
           body: {
-            padding: "7px 15px",
-            color: "#FFF5E1"
+            padding: "8px 15px",
+            color: "#FFF5E1",
+            justifyItems: "center",
+            alignItems: "center"
           },
         }
       }
@@ -162,7 +185,7 @@ const Event = () => {
             <ThemeProvider theme={getMuiTheme()}>
               <MUIDataTable
                 title={"Event List"}
-                data={users}
+                data={events}
                 columns={columns}
                 options={options}
               />
