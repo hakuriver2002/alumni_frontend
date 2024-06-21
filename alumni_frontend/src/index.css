@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+body{
+    margin: 0;
+    padding:0;
+    font-family: "Open Sans", sans-serif;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -21,7 +26,7 @@
 }
 
 
-/* dark mode looking scrollbar */
+/* dark mode looking scrollbar
 ::-webkit-scrollbar {
 	width: 8px;
 }
@@ -31,13 +36,13 @@
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #121212;
+	background: #555;
 	border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
 	background: #242424;
-}
+} */
 
 /* SHAKE ANIMATION ON HORIZONTAL DIRECTION */
 .shake {
