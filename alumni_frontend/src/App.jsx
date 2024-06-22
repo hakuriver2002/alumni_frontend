@@ -4,7 +4,7 @@ import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import HomePage from "./pages/Home/HomePage";
 import EventPage from "./pages/EventPage/EventPage";
-import News from "./pages/NewPage/NewPage";
+import NewsPage from "./pages/NewPage/NewPage";
 import Job from "./pages/Job/Job";
 import { Toaster } from "react-hot-toast";
 import { useAuthContext } from "./context/authContext";
@@ -13,6 +13,7 @@ import Alumni from "./pages/AdminPage/Alumni/Alumni";
 import Event from "./pages/AdminPage/Event/Event";
 import { useEffect } from "react";
 import Dashboard from "./pages/AdminPage/Dashboard/Dashboard";
+import News from "./pages/AdminPage/News/News";
 
 function App() {
   const { authUser } = useAuthContext();
@@ -37,7 +38,7 @@ function App() {
         />
         <Route
           path="/news"
-          element={<News />}
+          element={<NewsPage />}
         />
         <Route
           path="/jobs"
@@ -72,6 +73,10 @@ function App() {
         <Route
           path="/admin/event"
           element={<Event />}
+        />
+        <Route
+          path="/admin/news"
+          element={<News />}
         />
 
         {/* pages  */}

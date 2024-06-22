@@ -120,10 +120,10 @@ const Event = () => {
     },
     palette: {
       background: {
-        paper: "#7776B3",
+        paper: "#F3F7EC",
         default: "#E2BBE9"
       },
-      mode: "dark"
+      mode: "light"
     },
     components: {
       MuiTableCell: {
@@ -133,7 +133,7 @@ const Event = () => {
           },
           body: {
             padding: "8px 15px",
-            color: "#FFF5E1",
+            color: "#212121",
             justifyItems: "center",
             alignItems: "center"
           },

@@ -16,57 +16,26 @@ const News = () => {
   const [news, setNews] = useState([]);
   
   const columns = [
-    // {
-    //   name: "image",
-    //   label: "Profile",
-    //   options: {
-    //     customBodyRender: (value) => <img src={value} alt="pic" className="w-12 h-12 rounded-full"/>
-    //   }
-    // },
+    {
+      name: "urlToImage",
+      label: "IMAGE",
+      options: {
+        customBodyRender: (value) => {
+          <img src={value} alt="Image" className="w-12 h-12 rounded-full" />
+        }
+      }
+    },
     {
       name: "title",
-      label: "Title",
-    },
-    // {
-    //   name: "gender",
-    //   label: "Gender",
-    //   options: {
-    //     customBodyRender: (value) => <p className={`capitalize px-3 py-1 inline-block rounded-full ${
-    //       value == "male" ? "bg-blue-500" : "bg-pink-500"
-    //     }`}>{value}</p>
-    //   }
-    // },
-    {
-        name: "tags",
-        label: "Tags",
-        options: {
-            customBodyRender: (value) => (
-                <div>
-                    {value.map((tag, index) => (
-                        <span key={index} className="tag inline-block bg-slate-300 px-1 m-2 rounded-full">
-                            {tag}
-                        </span>
-                    ))}
-                </div>
-            )
-        }
-        
+      label: "Title"
     },
     {
-        name: "reactions",
-        label: "Reactions",
-        options: {
-          customBodyRender: (value) => (
-            <div className="flex ">
-              <span className="reaction bg-green-400">👍 {value.likes}</span> &nbsp;
-              <span className="reaction bg-red-400">👎 {value.dislikes}</span>
-            </div>
-          ),
-        },
+      name: "author",
+      label: "Author"
     },
     {
-        name: "views",
-        label: "Views"
+      name: "publishedAt",
+      label: "Date published"
     },
     {
       name: "Edit",
@@ -91,17 +60,16 @@ const News = () => {
   ]
 
   useEffect(() => {
-    fetch("https://newsdata.io/api/1/latest?apikey=pub_4700850adec277121d6dc137bc623309ba669&q=pegasus&language=en")
+    fetch("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=e358fe8192ef4c4e85b76cc3745bf3e1")
     .then((res) => res.json())
     .then((data) => {
-      let local = data?.posts?.map((news) => ({
+      let local = data?.articles?.map((news) => ({
         ...news,
       }))
 
-
       console.log(local);
 
-      setNews(local)
+      setNews(local);
     })
   }, [])
 
@@ -120,10 +88,10 @@ const News = () => {
     },
     palette: {
       background: {
-        paper: "#7776B3",
+        paper: "#F3F7EC",
         default: "#E2BBE9"
       },
-      mode: "dark"
+      mode: "light"
     },
     components: {
       MuiTableCell: {
@@ -133,7 +101,7 @@ const News = () => {
           },
           body: {
             padding: "8px 15px",
-            color: "#FFF5E1",
+            color: "#212121",
             justifyItems: "center",
             alignItems: "center"
           },
