@@ -1,17 +1,22 @@
 import "./App.css";
+// Libary
 import { Navigate, Route, Routes } from "react-router-dom";
-import Login from "./pages/Login/Login";
-import Signup from "./pages/Signup/Signup";
-import HomePage from "./pages/Home/HomePage";
-import EventPage from "./pages/EventPage/EventPage";
-import NewsPage from "./pages/NewPage/NewPage";
-import Job from "./pages/Job/Job";
 import { Toaster } from "react-hot-toast";
 import { useAuthContext } from "./context/authContext";
+import { useEffect } from "react";
+// Auth Page
+import Login from "./pages/authPage/Login/Login";
+import Signup from "./pages/authPage/Signup/Signup";
+// Guest Page
+import HomePage from "./pages/GuestPage/Home/HomePage";
+import EventPage from "./pages/GuestPage/EventPage/EventPage";
+import NewsPage from "./pages/GuestPage/NewsPage/NewsPage";
+import JobPage from "./pages/GuestPage/Job/JobPage"
+// Admin Page
+import Job from "./pages/AdminPage/Job/Job";
 import Layout from "./pages/AdminPage/Layout";
 import Alumni from "./pages/AdminPage/Alumni/Alumni";
 import Event from "./pages/AdminPage/Event/Event";
-import { useEffect } from "react";
 import Dashboard from "./pages/AdminPage/Dashboard/Dashboard";
 import News from "./pages/AdminPage/News/News";
 
@@ -42,7 +47,7 @@ function App() {
         />
         <Route
           path="/jobs"
-          element={<Job />}
+          element={<JobPage />}
         />
 
         {/* Auth Alumni*/}
@@ -55,29 +60,37 @@ function App() {
           path="/signup"
           element={authUser ? <Navigate to="/" /> : <Signup />}
         />
+          {/* Social */}
+          <Route
+            path=""
+          />
 
         {/* Auth Manager */}
         <Route
           path="/admin"
           element={<Layout />}
         />
-        {/* dashboard  */}
-        <Route
-          path="/admin/dashboard"
-          element={<Dashboard />}
-        />
-        <Route
-          path="/admin/alumni"
-          element={<Alumni />}
-        />
-        <Route
-          path="/admin/event"
-          element={<Event />}
-        />
-        <Route
-          path="/admin/news"
-          element={<News />}
-        />
+          {/* dashboard  */}
+          <Route
+            path="/admin/dashboard"
+            element={<Dashboard />}
+          />
+          <Route
+            path="/admin/alumni"
+            element={<Alumni />}
+          />
+          <Route
+            path="/admin/event"
+            element={<Event />}
+          />
+          <Route
+            path="/admin/news"
+            element={<News />}
+          />
+          <Route
+            path="/admin/job"
+            element={<Job />}
+          />
 
         {/* pages  */}
         {/* <Route path="/orders" element={<Orders />} />

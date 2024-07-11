@@ -499,7 +499,7 @@ export const links = [
         icon: <IoNewspaperOutline />,
       },
       {
-        name: 'jobs',
+        name: 'job',
         icon: <FaSuitcase />,
       },
     ],

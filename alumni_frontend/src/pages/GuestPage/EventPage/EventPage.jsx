@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Navbar from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
-import logo from '../../assets/logo_tdtu.png';
+import Navbar from '../../../components/Header/Header'
+import Footer from '../../../components/Footer/Footer'
+import logo from '../../../assets/logo_tdtu.png';
 import { Link } from 'react-router-dom';
 import { CiCalendar, CiLocationOn } from "react-icons/ci";
 import { IoMdTime } from "react-icons/io";

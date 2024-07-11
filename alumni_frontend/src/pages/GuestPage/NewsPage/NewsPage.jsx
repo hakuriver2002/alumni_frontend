@@ -1,11 +1,11 @@
 import React from 'react'
-import Navbar from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
-import imgNews from "../../assets/chuyendoiso.jpg"
-import imgNe from "../../assets/mta-vietnam-2024.jpg"
+import Navbar from '../../../components/Header/Header'
+import Footer from '../../../components/Footer/Footer'
+import imgNews from "../../../assets/chuyendoiso.jpg"
+import imgNe from "../../../assets/mta-vietnam-2024.jpg"
 
 
-const NewPage = () => {
+const NewsPage = () => {
   const newsData = [
     {
       title: "Top 10 Web App Ideas That Will Work Wonders In 2024",
@@ -263,4 +263,4 @@ const NewPage = () => {
   )
 }
 
-export default NewPage
+export default NewsPage
