@@ -19,6 +19,12 @@ import Alumni from "./pages/AdminPage/Alumni/Alumni";
 import Event from "./pages/AdminPage/Event/Event";
 import Dashboard from "./pages/AdminPage/Dashboard/Dashboard";
 import News from "./pages/AdminPage/News/News";
+// Alumni Page
+import SocialPage from "./pages/AlumniPage/home/SocialPage";
+import NotificationPage from "./pages/AlumniPage/notification/NotificationPage";
+import ProfilePage from "./pages/AlumniPage/profile/ProfilePage";
+import ChatPage from "./pages/AlumniPage/chat/ChatPage";
+
 
 function App() {
   const { authUser } = useAuthContext();
@@ -33,64 +39,35 @@ function App() {
     <div className="w-auto">
       <Routes>
         {/* Not Auth */}
-        <Route
-          path="/"
-          element={<HomePage />}
-        />
-        <Route
-          path="/events"
-          element={<EventPage />}
-        />
-        <Route
-          path="/news"
-          element={<NewsPage />}
-        />
-        <Route
-          path="/jobs"
-          element={<JobPage />}
-        />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/events" element={<EventPage />} />
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/jobs" element={<JobPage />} />
 
         {/* Auth Alumni*/}
 
-        <Route
-          path="/login"
-          element={authUser ? <Navigate to="/social" /> : <Login />}
-        />
-        <Route
-          path="/signup"
-          element={authUser ? <Navigate to="/" /> : <Signup />}
-        />
-          {/* Social */}
-          <Route
-            path=""
-          />
+        <Route path="/login" element={!authUser ? <Login />  : <Navigate to="/alumni" /> } />
+        <Route path="/signup" element={!authUser ? <Signup /> : <Navigate to="/alumni" /> } />
+        {/* Alumni Social */}
+        <Route path="/alumni" element={authUser ? <SocialPage /> : <Navigate to='/login' />} />
+        <Route path="/alumni/notifications" element={authUser ? <NotificationPage /> : <Navigate to='/login' />} />
+        <Route path="/alumni/profile/:username" element={authUser ? <ProfilePage /> : <Navigate to='/login' />} />
+        <Route path="/alumni/chat" element={authUser ? <ChatPage /> : <Navigate to='/login' />} />
 
         {/* Auth Manager */}
-        <Route
-          path="/admin"
-          element={<Layout />}
+        <Route path="/admin" element={<Layout />} />
+
+        {/* dashboard  */}
+        <Route path="/admin/dashboard" element={<Dashboard />}
         />
-          {/* dashboard  */}
-          <Route
-            path="/admin/dashboard"
-            element={<Dashboard />}
-          />
-          <Route
-            path="/admin/alumni"
-            element={<Alumni />}
-          />
-          <Route
-            path="/admin/event"
-            element={<Event />}
-          />
-          <Route
-            path="/admin/news"
-            element={<News />}
-          />
-          <Route
-            path="/admin/job"
-            element={<Job />}
-          />
+        <Route path="/admin/alumni" element={<Alumni />}
+        />
+        <Route path="/admin/event" element={<Event />}
+        />
+        <Route path="/admin/news" element={<News />}
+        />
+        <Route path="/admin/job" element={<Job />}
+        />
 
         {/* pages  */}
         {/* <Route path="/orders" element={<Orders />} />

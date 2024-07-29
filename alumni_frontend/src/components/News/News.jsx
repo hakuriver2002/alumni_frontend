@@ -7,12 +7,12 @@ function NewsCard({ imageSrc, title, date, description, buttonText }) {
           <img src={imageSrc} alt={title} className="rounded-xl" />
         </figure>
         <div className="card-body items-center text-center">
-          <h2 className="card-title">{title}</h2>
+          <h2 className="card-title text-black">{title}</h2>
           <p className="font-light text-gray-500">{date}</p>
           <p className="text-gray-500">{description}</p>
           <div className="card-actions mt-4">
             <button className=" block mx-auto px-8 py-3 text-white font-bold rounded-md
-      bg-blue-400 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 text-sm dark:bg-blue-400 dark:hover:bg-blue-600 focus:outline-none dark:focus:ring-blue-300"
+              bg-blue-3 hover:bg-blue-4 focus:ring-4 focus:ring-blue-4 text-sm"
              >{buttonText}
             </button>
           </div>
@@ -69,7 +69,7 @@ const News = () => {
       ];
   return (
     <div className="container mx-auto px-4 py-16">
-        <h2 className='text-3xl font-bold text-center mb-8'>News</h2>
+        <h2 className='text-3xl font-bold text-center mb-8 text-blue-1'>News</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
             {news.map((news, index) => (
             <NewsCard key={index} {...news} />
@@ -77,8 +77,7 @@ const News = () => {
 	    </div>
         <div className="card-actions mt-8">
             <button className=" block mx-auto px-8 py-3 text-white font-bold rounded-md
-            bg-blue-400 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 text-sm 
-            dark:bg-blue-400 dark:hover:bg-blue-600 focus:outline-none dark:focus:ring-blue-300"
+            bg-blue-3 hover:bg-blue-4 focus:ring-4 focus:ring-blue-4 text-sm "
              >Xem thêm
             </button>
         </div>

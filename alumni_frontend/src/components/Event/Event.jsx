@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 function Events({ date, month, day, title, time, location }) {
   return (
     <div className="flex flex-col items-center px-4 py-6 rounded-md bg-gray-100 shadow-md">
-      <div className="flex gap-2">
+      <div className="flex gap-2 text-black">
         <div className="font-bold text-lg">{month}</div>
         <div className="font-extrabold text-4xl">{date}</div>
         <div className="text-sm">{day}</div>
       </div>
-      <h3 className="text-lg text-center font-semibold mt-4">{title}</h3>
-      <div className="flex gap-2 mt-2">
+      <h3 className="text-lg text-center font-semibold mt-4 text-blue-1">{title}</h3>
+      <div className="flex gap-2 mt-2 text-blue-3">
         <span className="flex items-center gap-1">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
             <path d="M7 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zM13 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1z" />
@@ -58,20 +58,18 @@ const Event = () => {
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <h2 className="text-3xl font-bold text-center mb-8">ALUMNI EVENTS</h2>
+      <h2 className="text-3xl font-bold text-center mb-8 text-blue-1">ALUMNI EVENTS</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {events.map((event, index) => (
           <Events key={index} {...event} />
         ))}
       </div>
-      <Link to={'events'}>
-        <button className="block mt-8 mx-auto px-8 py-3 
-        text-white font-bold rounded-md
-        bg-blue-400 hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 text-sm dark:bg-blue-400 dark:hover:bg-blue-600 focus:outline-none dark:focus:ring-blue-300"
-        >
-          View All Events
-        </button>
-      </Link>
+      <div className="card-actions mt-8">
+          <button className=" block mx-auto px-8 py-3 text-white font-bold rounded-md
+          bg-blue-3 hover:bg-blue-4 focus:ring-4 focus:ring-blue-4 text-sm "
+            >Xem thêm
+          </button>
+      </div>
       
     </div>
   );

@@ -28,9 +28,9 @@ const EventPage = () => {
     <>
       <Navbar/>
       {/* Searching bar */}
-      <section className="container py-12 max-w-full bg-gray-200 border-gray-200">
+      <section className="container py-12 max-w-full bg-blue-2 border-gray-3">
         <div className="mx-32">
-          <h2 className="text-6xl font-bold mb-6 ml-3 uppercase">Event</h2>
+          <h2 className="text-6xl font-bold mb-6 ml-3 uppercase text-black">Event</h2>
           {/* Search Event */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div>
@@ -120,30 +120,30 @@ const EventPage = () => {
             <div className="flex flex-col items-start gap-4 p-4 flex-1 md:w-1/2">
               <div className="content space-y-2 flex-1">
                 <h2 className='text-2xl font-bold'>Su kien Ton Duc Thang University</h2>
-                <div className="flex items-center gap-3 text-base text-gray-500 dark:text-gray-400 ">
+                <div className="flex items-center gap-3 text-base text-gray-500">
                   <CiCalendar className='h-4 w-4'/>
                   <span>Jun 15, 2024</span>
                   <IoMdTime className='h-4 w-4'/>
                   <span>09:00 AM</span>
                 </div>
-                <div className="flex items-center gap-3 text-base text-gray-500 dark:text-gray-400">
+                <div className="flex items-center gap-3 text-base text-gray-500">
                   <CiLocationOn className='h-4 w-4'/>
                   <span>Room A0403</span>
                 </div>
-                <div className="flex items-center gap-2 text-base text-gray-500 dark:text-gray-400">
+                <div className="flex items-center gap-2 text-base text-gray-500">
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus in arcu bibendum placerat. Morbi
                     ornare leo at ex euismod, vel consequat neque vehicula.
                   </p>
                 </div>
                 <div className="flex items-center gap-6 text-base text-gray-500 dark:text-gray-400">
-                  <span className='flex-none rounded-md bg-sky-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
+                  <span className='flex-none rounded-md bg-blue-3 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-bg-blue-3'>
                     Funny
                   </span>
-                  <span className='flex-none rounded-md bg-sky-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
+                  <span className='flex-none rounded-md bg-blue-3 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-bg-blue-3'>
                     Work experience
                   </span>
-                  <span className='flex-none rounded-md bg-sky-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
+                  <span className='flex-none rounded-md bg-blue-3 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-bg-blue-3'>
                     Soft skills
                   </span>
                 </div>
@@ -188,13 +188,13 @@ const EventPage = () => {
                   </p>
                 </div>
                 <div className="flex items-center gap-6 text-base text-gray-500 dark:text-gray-400">
-                  <span className='flex-none rounded-md bg-sky-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
+                  <span className='flex-none rounded-md bg-blue-3 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
                     Funny
                   </span>
-                  <span className='flex-none rounded-md bg-sky-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
+                  <span className='flex-none rounded-md bg-blue-3 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
                     Work experience
                   </span>
-                  <span className='flex-none rounded-md bg-sky-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
+                  <span className='flex-none rounded-md bg-blue-3 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
                     Soft skills
                   </span>
                 </div>
@@ -239,22 +239,23 @@ const EventPage = () => {
                   </p>
                 </div>
                 <div className="flex items-center gap-6 text-base text-gray-500 dark:text-gray-400">
-                  <span className='flex-none rounded-md bg-sky-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
+                  <span className='flex-none rounded-md bg-blue-3 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
                     Funny
                   </span>
-                  <span className='flex-none rounded-md bg-sky-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
+                  <span className='flex-none rounded-md bg-blue-3 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
                     Work experience
                   </span>
-                  <span className='flex-none rounded-md bg-sky-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
+                  <span className='flex-none rounded-md bg-blue-3 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500'>
                     Soft skills
                   </span>
                 </div>
               </div>
-              <button className="flex-none rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 mt-4 ml-auto">
-                Read more
-              </button>
             </div>
           </div>
+          <button className=" block mx-auto px-8 py-3 text-white font-bold rounded-md
+          bg-blue-3 hover:bg-blue-4 focus:ring-4 focus:ring-blue-4 text-sm ">
+            Read more
+          </button>
         </div>
       </section>
       <Footer/>

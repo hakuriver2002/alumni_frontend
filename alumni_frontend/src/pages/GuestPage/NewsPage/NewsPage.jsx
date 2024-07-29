@@ -254,7 +254,8 @@ const NewsPage = () => {
         <div className="flex flex-col items-center my-8">
           <a
             href='/news'
-            className='text-black bg--400 border-solid border-2 border-gray-700 hover:bg-red-600 hover:text-white focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0'
+            className=" block mx-auto px-8 py-3 text-white font-bold rounded-md
+          bg-blue-3 hover:bg-blue-4 focus:ring-4 focus:ring-blue-4 text-sm "
           >Load More</a>
         </div>
       </section>

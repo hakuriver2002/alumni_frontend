@@ -10,7 +10,7 @@ import {
     
 const Footer = () => {
   return (
-    <div className="flex flex-col items-center px-16 pt-20 pb-4 bg-gray-700 max-md:px-5">
+    <div className="flex flex-col items-center px-16 pt-20 pb-4 bg-blue-1 max-md:px-5">
       <div className="flex flex-col items-center w-full max-w-[1485px] max-md:max-w-full">
         <div className="text-3xl font-medium leading-10 text-white max-md:max-w-full">
           Subscribe to our newsletter
