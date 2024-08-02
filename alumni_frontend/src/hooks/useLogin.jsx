@@ -23,8 +23,7 @@ const useLogin = () => {
 				throw new Error(data.error);
 			}
 
-			localStorage.setItem("alumni", JSON.stringify(data));
-            // console.log(data);
+			localStorage.setItem("authUser", JSON.stringify(data));
 			setAuthUser(data);
 		} catch (error) {
 			toast.error(error.message);
@@ -42,6 +41,5 @@ function handleInputErrors(email, password) {
 		toast.error("Please fill in all fields");
 		return false;
 	}
-
 	return true;
 }

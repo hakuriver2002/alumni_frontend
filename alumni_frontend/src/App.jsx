@@ -4,8 +4,11 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { useAuthContext } from "./context/authContext";
 import { useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+// Components
+import LoadingSpinner from "./components/alumniComponents/common/LoadingSpinner";
 // Auth Page
-import Login from "./pages/authPage/Login/Login";
+import LoginAlumni from "./pages/authPage/Login/LoginAlumni";
 import Signup from "./pages/authPage/Signup/Signup";
 // Guest Page
 import HomePage from "./pages/GuestPage/Home/HomePage";
@@ -24,10 +27,13 @@ import SocialPage from "./pages/AlumniPage/home/SocialPage";
 import NotificationPage from "./pages/AlumniPage/notification/NotificationPage";
 import ProfilePage from "./pages/AlumniPage/profile/ProfilePage";
 import ChatPage from "./pages/AlumniPage/chat/ChatPage";
+import JobDetail from "./pages/GuestPage/Job/JobDetail";
+
+
 
 
 function App() {
-  const { authUser } = useAuthContext();
+  const {authUser} = useAuthContext();
 
   useEffect(() => {
     document.querySelector("html").style.scrollBehavior = "auto";
@@ -43,31 +49,28 @@ function App() {
         <Route path="/events" element={<EventPage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/jobs" element={<JobPage />} />
+        <Route path="/jobs/detail/:jobId" element={<JobDetail />} />
 
         {/* Auth Alumni*/}
 
-        <Route path="/login" element={!authUser ? <Login />  : <Navigate to="/alumni" /> } />
-        <Route path="/signup" element={!authUser ? <Signup /> : <Navigate to="/alumni" /> } />
+        <Route path="/alumni/login" element={authUser ? <Navigate to="/alumni" /> : <LoginAlumni />   } />
+        <Route path="/signup" element={authUser ? <Navigate to="/" />: <Signup />  } />
+        <Route path="/alumni/logout" element={authUser ? <Navigate to="/" />: <Signup />  } />
         {/* Alumni Social */}
-        <Route path="/alumni" element={authUser ? <SocialPage /> : <Navigate to='/login' />} />
-        <Route path="/alumni/notifications" element={authUser ? <NotificationPage /> : <Navigate to='/login' />} />
-        <Route path="/alumni/profile/:username" element={authUser ? <ProfilePage /> : <Navigate to='/login' />} />
-        <Route path="/alumni/chat" element={authUser ? <ChatPage /> : <Navigate to='/login' />} />
+        <Route path="/alumni" element={authUser ? <SocialPage /> : <Navigate to='/alumni/login' />} />
+        <Route path="/alumni/notifications" element={authUser ? <NotificationPage /> : <Navigate to='/alumni/login' />} />
+        <Route path="/alumni/profile/:username" element={authUser ? <ProfilePage /> : <Navigate to='/alumni/login' />} />
+        <Route path="/alumni/chat" element={authUser ? <ChatPage /> : <Navigate to='/alumni/login' />} />
 
         {/* Auth Manager */}
         <Route path="/admin" element={<Layout />} />
 
         {/* dashboard  */}
-        <Route path="/admin/dashboard" element={<Dashboard />}
-        />
-        <Route path="/admin/alumni" element={<Alumni />}
-        />
-        <Route path="/admin/event" element={<Event />}
-        />
-        <Route path="/admin/news" element={<News />}
-        />
-        <Route path="/admin/job" element={<Job />}
-        />
+        <Route path="/admin/dashboard" element={authUser ? <Dashboard /> : <Navigate to='/login'/> }/>
+        <Route path="/admin/alumni" element={authUser ? <Alumni /> : <Navigate to='/login'/> }/>
+        <Route path="/admin/event" element={authUser ? <Event /> : <Navigate to='/login'/>}/>
+        <Route path="/admin/news" element={authUser ? <News /> : <Navigate to='/login'/>}/>
+        <Route path="/admin/job" element={authUser ? <Job /> : <Navigate to='/login'/>}/>
 
         {/* pages  */}
         {/* <Route path="/orders" element={<Orders />} />

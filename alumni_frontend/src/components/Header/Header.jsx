@@ -58,7 +58,7 @@ const Navbar = () => {
           {/* Button Login */}
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
               <a 
-                href="/login"
+                href="/alumni/login"
                 className="text-blue-1 bg-blue-2 hover:bg-blue-3 focus:ring-4 focus:ring-blue-3 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 ">
                 Login
               </a>

@@ -14,6 +14,8 @@ export default {
       white: colors.white,
       black: colors.black,
       gray: colors.gray,
+      slate: colors.slate,
+      red: colors.red,
     }
   },
   plugins: [require("daisyui")],
