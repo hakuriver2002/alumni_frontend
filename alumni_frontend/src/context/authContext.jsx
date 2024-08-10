@@ -2,6 +2,13 @@ import { createContext, useContext, useState } from "react";
 
 export const AuthContext = createContext();
 
+const initialState = {
+	chat: false,
+	cart: false,
+	userProfile: false,
+	notification: false,
+};
+
 // eslint-disable-next-line react-refresh/only-export-components
 export const useAuthContext = () => {
 	return useContext(AuthContext);
@@ -9,6 +16,25 @@ export const useAuthContext = () => {
 
 export const AuthContextProvider = ({ children }) => {
 	const [authUser, setAuthUser] = useState(JSON.parse(localStorage.getItem("authUser")) || null);
+	const [screenSize, setScreenSize] = useState(undefined);
+	const [currentColor, setCurrentColor] = useState('#03C9D7');
+	const [currentMode, setCurrentMode] = useState('Light');
+	const [themeSettings, setThemeSettings] = useState(false);
+	const [activeMenu, setActiveMenu] = useState(true);
+	const [isClicked, setIsClicked] = useState(initialState);
 
-	return <AuthContext.Provider value={{ authUser, setAuthUser }}>{children}</AuthContext.Provider>;
+	const setMode = (e) => {
+		setCurrentMode(e.target.value);
+		localStorage.setItem('themeMode', e.target.value);
+	};
+
+	const setColor = (color) => {
+		setCurrentColor(color);
+		localStorage.setItem('colorMode', color);
+	};
+
+	const handleClick = (clicked) => setIsClicked({ ...initialState, [clicked]: true });
+
+
+	return <AuthContext.Provider value={{currentColor, currentMode, activeMenu, screenSize, setScreenSize, handleClick, isClicked, initialState, setIsClicked, setActiveMenu, setCurrentColor, setCurrentMode, setMode, setColor, themeSettings, setThemeSettings , authUser, setAuthUser }}>{children}</AuthContext.Provider>;
 };

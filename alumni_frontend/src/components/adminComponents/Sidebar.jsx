@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { SiShopware } from 'react-icons/si';
-import { MdOutlineCancel } from 'react-icons/md';
+import { MdEmojiEvents, MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import logo from "../../assets/logo_tdtu.png";
 import { links } from '../../data/dummy';
 import { useAuthContext } from "../../context/authContext";
 import { Tooltip } from 'react-tooltip';
+import { RiDashboardFill } from 'react-icons/ri';
+import { FaSuitcase, FaUserGroup } from 'react-icons/fa6';
+import { IoNewspaperOutline } from 'react-icons/io5';
+import { IoIosArrowDown, IoIosArrowBack } from "react-icons/io";
+
 
 
 const Sidebar = () => {
    
   const { currentColor, activeMenu, setActiveMenu, screenSize } = useAuthContext();
+
+  const [expandItem, setExpandItem ] = useState(null);
+
+  
+
+  const handleToggle = (item) => {
+    setExpandItem(expandItem === item ? null : item);
+  }
 
 
   const handleCloseSideBar = () => {
@@ -39,7 +52,78 @@ const Sidebar = () => {
             </Link>
           </div>
           <div className="mt-10 ">
-            {links.map((link) => (
+            <ul className='sidebar menu' id='sidebar'>
+              <li className='' id='Dashboard'>
+                <a href="" className='text-gray-800 m-3 mt-4 uppercase'>
+                  <RiDashboardFill/>
+                  <span>Dashboard</span>
+                  <span className='fa arrow'></span>
+                </a>
+                
+              </li>
+              <li className='' id='Alumni'>
+                <a className='text-gray-800 m-3 mt-4 uppercase' 
+                onClick={() => handleToggle('Alumni')}>
+                  <FaUserGroup/>
+                  <span>Alumni</span>
+                  {expandItem === 'Alumni' ? <IoIosArrowDown/> : <IoIosArrowBack/>}
+                </a>
+                {expandItem === 'Alumni' && (
+                  <ul className='nav nav-second-level collapse in'>
+                    <li>
+                      <Link to={`/admin/alumni?major=KTPM`} id='KTPM'>
+                        <i></i>
+                        <span>Kỹ thuật phần mềm</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <a href="/admin/alumni#KHMT" id='KHMT'>
+                        <i></i>
+                        <span>Khoa học máy tính</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/admin/alumni#MMT" id='MMT'>
+                        <i></i>
+                        <span>Mạng máy tính</span>
+                      </a>
+                    </li>
+                  </ul>
+                )}
+              </li>
+              <li className='' id='Events'>
+                <a href="" className='text-gray-800 m-3 mt-4 uppercase'>
+                  <MdEmojiEvents/>
+                  <span>Event</span>
+                  <span className='fa arrow'></span>
+                </a>
+                
+              </li>
+              <li className='' id='News'>
+                <a href="" className='text-gray-800 m-3 mt-4 uppercase'>
+                  <IoNewspaperOutline/>
+                  <span>News</span>
+                  <span className='fa arrow'></span>
+                </a>  
+              </li>
+              <li className='' id='Jobs'>
+                <a href="" className='text-gray-800 m-3 mt-4 uppercase'>
+                  <FaSuitcase/>
+                  <span>Jobs</span>
+                  <span className='fa arrow'></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default Sidebar;
+
+{/* {links.map((link) => (
               <div key={link.title}>
                 <p className="text-gray-800 m-3 mt-4 uppercase">
                   {link.title}
@@ -59,12 +143,4 @@ const Sidebar = () => {
                   </NavLink>
                 ))}
               </div>
-            ))}
-          </div>
-        </>
-      )}
-    </div>
-  );
-};
-
-export default Sidebar;
+            ))} */}

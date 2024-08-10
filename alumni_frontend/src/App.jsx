@@ -66,11 +66,11 @@ function App() {
         <Route path="/admin" element={<Layout />} />
 
         {/* dashboard  */}
-        <Route path="/admin/dashboard" element={authUser ? <Dashboard /> : <Navigate to='/login'/> }/>
-        <Route path="/admin/alumni" element={authUser ? <Alumni /> : <Navigate to='/login'/> }/>
-        <Route path="/admin/event" element={authUser ? <Event /> : <Navigate to='/login'/>}/>
-        <Route path="/admin/news" element={authUser ? <News /> : <Navigate to='/login'/>}/>
-        <Route path="/admin/job" element={authUser ? <Job /> : <Navigate to='/login'/>}/>
+        <Route path="/admin/dashboard" element={<Dashboard />  }/>
+        <Route path="/admin/alumni" element={ <Alumni />  }/>
+        <Route path="/admin/event" element={ <Event /> }/>
+        <Route path="/admin/news" element={ <News /> }/>
+        <Route path="/admin/job" element={ <Job /> }/>
 
         {/* pages  */}
         {/* <Route path="/orders" element={<Orders />} />
